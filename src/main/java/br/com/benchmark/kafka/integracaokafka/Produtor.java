@@ -25,8 +25,8 @@ public class Produtor {
 		 props.put("block.on.buffer.full", "true");
 		 
 		 Producer<String, String> producer = new KafkaProducer<>(props);
-		 for(int i = 1; i <= 1000; i++) {
-		     producer.send(new ProducerRecord<String, String>("msgs", "Estado - " + Integer.toString(i)));
+		 for(int i = 1; i <= 1000000; i++) {
+		     producer.send(new ProducerRecord<String, String>("newtopic1", "Estado - " + Integer.toString(i)));
 		 }
 
 //		 producer.send(new ProducerRecord<String, String>("newtopic", "newmsg2"));
