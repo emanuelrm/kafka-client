@@ -1,5 +1,6 @@
 package br.com.benchmark.kafka.integracaokafka;
 
+import java.util.Date;
 import java.util.Properties;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -24,12 +25,12 @@ public class Produtor {
 		 props.put("block.on.buffer.full", "true");
 		 
 		 Producer<String, String> producer = new KafkaProducer<>(props);
-		 for(int i = 1; i < 10; i++) {
-		     producer.send(new ProducerRecord<String, String>("newtopic", "prod - " + Integer.toString(i)));
+		 for(int i = 1; i <= 1000; i++) {
+		     producer.send(new ProducerRecord<String, String>("msgs", "Estado - " + Integer.toString(i)));
 		 }
 
 //		 producer.send(new ProducerRecord<String, String>("newtopic", "newmsg2"));
-		 System.out.println("Fim");
+		 System.out.println("Fim - " + new Date());
 		 producer.close();
 	}
 
