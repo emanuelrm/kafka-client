@@ -24,11 +24,11 @@ public class Produtor {
 		 props.put("block.on.buffer.full", "true");
 		 
 		 Producer<String, String> producer = new KafkaProducer<>(props);
-		 for(int i = 1; i < 1000000; i++) {
-		     producer.send(new ProducerRecord<String, String>("test", "newmsg - " + Integer.toString(i)));
+		 for(int i = 1; i < 10; i++) {
+		     producer.send(new ProducerRecord<String, String>("newtopic", "prod - " + Integer.toString(i)));
 		 }
 
-//		 producer.send(new ProducerRecord<String, String>("test", "newmsg2"));
+//		 producer.send(new ProducerRecord<String, String>("newtopic", "newmsg2"));
 		 System.out.println("Fim");
 		 producer.close();
 	}
